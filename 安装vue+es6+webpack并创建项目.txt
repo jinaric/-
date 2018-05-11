@@ -1,0 +1,64 @@
+安装vue.js 并创建项目
+
+1.安装环境
+必备的node环境及npm
+
+2.全局安装webpack
+打开终端输入：npm install webpack -g  mac加sudo
+webpack -v 查看版本号
+
+3.全局安装vue-cli脚手架
+终端（或cmd）输入：npm install vue-cli -g
+
+二、使用vue-cli构建项目
+1、在桌面或磁盘任意盘符下新建一个文件夹，使用终端（或cmd） cd到新建的文件夹下
+2.安装步骤
+# 创建一个基于 webpack 模板的新项目
+$ vue init webpack my-project
+
+
+#之后会有如下询问
+? Project name (my-project) #回车
+? Project description  #回车，也可以写点项目描述
+? Author #回车，或者输入作者
+? Vue build standalone #回车
+? Install vue-router? (Y/n) #这里是官方推荐的路由，果断yes
+? Use ESLint to lint your code? #No
+? Set up unit tests #No
+? Setup e2e tests with Nightwatch? #No
+? Should we run `npm install` for you after the project has been created? (recommended)
+> Yes, use NPM #可以按上下方向键选择，这里我选第一个NPM，按回车确认
+  Yes, use Yarn
+  No, I will handle that myself
+#等待完成
+
+
+$ cd my-project
+$ npm install
+$ npm run dev
+
+三、es6项目
+1.全局安装 webpack 
+ npm install webpack -g 
+
+2.全局安装vue-cli脚手架(vue命令行工具)
+npm install vue-cli -g
+3.创建项目
+ cd到新建的文件夹下
+ vue init webpack es6
+
+会有以下询问
+? Project name es6
+? Project description A Vue.js project
+? Author ljh
+? Vue build standalone
+? Install vue-router? Yes
+? Use ESLint to lint your code? No
+? Set up unit tests No
+? Setup e2e tests with Nightwatch? no
+? Should we run `npm install` for you after the project has been created? (recom
+mended) npm
+
+$ cd es6
+$ npm install //安装
+$ npm run dev

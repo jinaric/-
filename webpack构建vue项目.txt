@@ -1,0 +1,29 @@
+1. cd 项目名  —-定位项目名里面
+2. npm init  —生成package.json文件
+3. npm install webpack --save-dev  —-生成依赖包，即node_modules目录
+4.建立src和dist文件夹，src目录下建styles和scripts
+5.根目录下建立index.html，并暂时引入出口文件bundle.js
+6.根目录建立webpack.config.js，配置文件里面的内容
+7.实现热加载 
+npm install --save-dev webpack-dev-server
+在package.json里的scripts加
+"start": "webpack-dev-server --env development"
+在web pack.config.js里加
+devServer: {
+        contentBase: path.join(__dirname, "/"),
+        historyApiFallback: true,//不跳转
+        inline: true,//实时刷新
+        hot: true
+    },
+npm run start
+最后强调，
+一：使用了extract-text-webpack-plugin插件后，编译出错，如下方法
+npm install extract-text-webpack-plugin@next --save-dev
+
+二：vue-loader 现在安装的话都15.0.3版本 ，会出现vue-loader was used without the corresponding plugin.。然后 我也不知道什么原因，我就把版本号改为14.0.3 了就ok了。如下方法：
+1）npm install vue-loader@14.0.3 --save-dev
+或者
+const VueLoaderPlugin = require('vue-loader/lib/plugin') //不需要安装
+plugins: [
+          new VueLoaderPlugin()
+	  ]

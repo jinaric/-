@@ -1,0 +1,87 @@
+1.解决闪缩问题：
+<div v-cloak></div>
+
+<style>
+	[v-cloak]{display:none}
+
+</style>
+
+2:v-show/v-if的区别：
+（1）手段： 
+v-if是动态的向DOM树内添加或者删除DOM元素； 
+v-show是通过设置DOM元素的display样式属性控制显隐；
+(2）编译过程： 
+v-if切换有一个局部编译/卸载的过程，切换过程中合适地销毁和重建内部的事件监听和子组件； 
+v-show只是简单的基于css切换； 
+（3）编译条件： 
+v-if是惰性的，如果初始条件为假，则什么也不做；只有在条件第一次变为真时才开始局部编译（编译被缓存？编译被缓存后，然后再切换的时候进行局部卸载); 
+v-show是在任何条件下（首次条件是否为真）都被编译，然后被缓存，而且DOM元素保留； 
+（4）性能消耗： 
+v-if有更高的切换消耗； 
+v-show有更高的初始渲染消耗； 
+（5）使用场景： 
+v-if适合运营条件不大可能改变； 
+v-show适合频繁切换。
+
+3.强制通过索引遍历  track-by=“$index” 2.0升级版是  v-bind:key="item.id"
+(在数组数据重复时,在渲染时无法决定如何复用。这时需要添加track-by="$index",来处理。)
+<ul v-for=“mess in message” track-by=“index” >
+	<li>{{mess}}</li>
+</ul>
+
+无track-by情况：数据修改时，无论值是否被修改，dom都被重新渲染（控制台可以看到）
+加入track-by属性：数据修改时，不变数据所在的dom不被重新渲染，已改变的数据所在dom才被重新渲染
+
+4.  1）、对于已经创建的实例，可以用$set添加属性
+var vm=new Vue({  
+    el:'#test',  
+    data:{  
+        //data中已经存在info根属性  
+        info:{  
+            name:'小明'  
+        }  
+    }  
+});  
+//给info添加一个性别属性  
+Vue.$set(vm.info,'sex','男'); 
+注视：对于已经创建的实例，Vue 不能动态添加根级别的响应式属性。但是，可以使用 Vue.set(object, key, value) 方法向嵌套对象添加响应式属性。
+
+2）、原因：由于 JavaScript 的限制，Vue 不能检测对象属性的添加或删除：
+
+var vm = new Vue({
+  data: {
+    a: 1
+  }
+})
+// `vm.a` 现在是响应式的
+
+vm.b = 2
+// `vm.b` 不是响应式的
+
+3）、有时你可能需要为已有对象赋予多个新属性，比如使用 Object.assign() 或 _.extend()。在这种情况下，你应该用两个对象的属性创建一个新的对象。
+
+vm.userProfile = Object.assign({}, vm.userProfile, {
+  age: 27,
+  favoriteColor: 'Vue Green'
+})
+
+
+5.显示一个数组的过滤或排序副本
+有时，我们想要显示一个数组的过滤或排序副本，而不实际改变或重置原始数据。在这种情况下，可以创建返回过滤或排序数组的计算属性。
+<li v-for=“mess in evennumbers”>{{mess}}</li>
+data:{
+	numbers:[1,2,3,4,5]
+},
+computed:{
+	evennumbers:function(){
+		return this.numbers.filter(function(number){
+		return number % 2 ===0
+})
+}
+}
+
+6.v-bind  //绑定动态属性
+<a v-bind:href=“href”>gotobd</a>
+data:{
+	href: ‘http://www.baidu.com’
+}

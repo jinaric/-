@@ -1,0 +1,84 @@
+Óöµ½°Ù·Ö±È¿íµÄÍ¼Æ¬Ê±£¬ÏëÒª´¹Ö±¾ÓÖÐµÄ»°£¬Èç£º
+¸¸¼¶£ºposition:relative;
+×Ó¼¶£ºposition:absolute;
+	width:20%;(Ëæ±ã)
+	margin: auto;
+	left:0;
+	top:0;
+	right:0;
+	bottom:0;
+
+
+¸ß¶ÈËúÏÝ£º
+
+.clearfix:after {
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+	clear:both;
+}
+.clearfix {
+*zoom:1;
+}
+
+ÎÄ×Ö³¬¹ý²»»»ÐÐ£¬ÓÃÿ±íÊ¾
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
+Ò³ÃæÌø×ª¼¸ÖÖ·½·¨£º
+Ò»£ºÁ´½ÓÊ½
+<a href=¡°javascript:history.go(-1)¡±></a>
+
+¶þ£ºÖ±½ÓÌø×ª
+<script>
+	window.location.href=¡°www.baidu.com¡±;
+	|| 
+	window.history.back(-1);
+</script>
+
+Èý£ºÐÂ¿ª´°¿Ú
+<a href=¡°javascript:;¡± onclick=¡°window.open(¡®www.baidu.com¡¯,¡¯¡¯,¡¯width=611,height=500,scrollbars=yes,status=yes¡¯)¡±>net</a>
+
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+
+<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}
+	input{
+		outline: none;
+	}
+	input[type="checkbox"] {
+	  -webkit-appearance: none !important;
+	  appearance: none !important;
+	  background-color: #fff;
+	  border: 1px solid #ccc;
+	  border-radius: 50%;
+	  padding: 10px;
+	  display: inline-block;
+	  vertical-align: middle;
+	  position: relative;
+	  cursor: pointer;
+	  font-family: 'iconfonts';
+	}
+	input[type="checkbox"]:checked, input[type="checkbox"] :indeterminate {
+	  background-color: #f26722;
+	  border-color: #f26722;
+	  color: #fff;
+	}
+	input[type="checkbox"]:checked:after, input[type="checkbox"]:indeterminate:after {
+	  content: '\e61c';
+	  font-size: 16px;
+	  position: absolute;
+	  top: -2px;
+	  left: 1px;
+	  width: 18px;
+	  height: 18px;
+	  text-align: center;
+	  color: #fff;
+	}
+</style>
+

@@ -1,0 +1,16 @@
+git 将本地项目上传到GitHub
+1.创建一个本地的版本库（就是一个文件夹）
+2.通过命令git init把这个文件夹变成Git可管理的仓库(这时你会发现TEST里面多了个.git文件夹，它是Git用来跟踪和管理版本库的。如果你看不到，是因为它默认是隐藏文件)
+3.这时候你就可以把你的项目粘贴到这个本地Git仓库里面
+4.然后我们通过命令$git add .把刚才复制过来的项目全部添加到仓库上
+5.用$git commit -m “webpack” 把项目提交到仓库,并命名
+6.创建SSH KEY。先看一下你C盘用户目录下有没有.ssh目录，有的话看下里面有没有id_rsa和id_rsa.pub这两个文件，有就跳到下一步，没有就通过下面命令创建
+$ ssh-keygen -t rsa -C "youremail@example.com"
+7.然后一路回车。这时你就会在用户下的.ssh目录里找到id_rsa和id_rsa.pub这两个文件
+8.第六步：登录Github,找到右上角的图标，打开点进里面的Settings，再选中里面的SSH and GPG KEYS，点击右上角的New SSH key，然后Title里面随便填，再把刚才id_rsa.pub里面的内容复制到Title下面的Key内容框里面，最后点击Add SSH key，这样就完成了SSH Key的加密。
+9.在Github上创建一个Git仓库。
+10.在Github上创建好Git仓库之后我们就可以和本地仓库进行关联了，可以用命令行输入：
+$git remote add origin git@github.com:jinaric/webpack-vue.git
+11.关联好之后我们就可以把本地库的所有内容推送到远程仓库（也就是Github）上了，通过命令：
+$ git push -u origin master 第一次新建的远程仓库是空的，所以要加上-u这个参数(有内容后不需要加-u)
+12.刷新页面，上传成功
